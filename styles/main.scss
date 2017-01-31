@@ -1,3 +1,110 @@
+@import 'variables';
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	position: relative;
+}
+
 body {
-	background: #ece7e7;
+	background: $white;
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+*:focus {
+	outline: 0;
+}
+
+// Add chart styles to seperate stylesheet
+.chartWrap {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	max-width: 1200px;
+	max-height: 500px;
+	max-height: auto;
+	clear: both;
+
+	left: 0;
+	right: 0;
+	display: block;
+	margin: auto;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+@media (max-width: 540px) {
+	.chartWrap {
+		top: 30px;
+	  left: auto;
+	  transform: none;
+		max-height: 380px;
+	}
+	.chartWrap .brand {
+		display: none;
+	}
+	.recharts-default-legend {
+		position: relative;
+	  top: 100px;
+	}
+}
+
+// @media (max-width: 540px) {
+// 	.footerWrapChart {
+// 		position: relative;
+// 	  top: 570px;
+// 	}
+// }
+
+// .controls {
+// 	position: absolute;
+// 	top: 100%;
+// }
+
+
+
+.recharts-wrapper {
+	right: 20px;
+}
+
+#fromcanvas {
+	width: 100%;
+	background: $white;
+  width: 100%;
+  max-width: 195px;
+  padding: 26px 24px 22px 15px;
+  margin-top: 10px;
+  border: 1px solid $purple;
+  border-radius: 4px;
+	display: none;
+  // margin-bottom: 80px;
+}
+
+.exportPngBtn {
+	background: $purple;
+  color: $white;
+	cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: 236px;
+  padding: 12px;
+  margin-top: 10px;
+	&:hover {
+		background: $teal;
+	}
+}
+
+.recharts-responsive-container {
+  margin-top: 12px;
+}
+
+.recharts-legend-wrapper {
+	padding-left: 30px;
 }

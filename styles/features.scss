@@ -1,0 +1,42 @@
+@import 'variables';
+
+.featuresRoot {
+  margin: 0;
+  background: $black;
+}
+
+.featuresIcon {
+  max-width: 100px;
+}
+
+.featuresContainer {
+  padding: 60px 0 90px;
+}
+
+.featuresContainer div {
+  width: 33.3333%;
+  color: $white;
+  text-align: center;
+  display: inline-block;
+
+  p {
+    max-width: 300px;
+    display: block;
+    margin: auto;
+  }
+}
+
+.textFeatures {
+  margin-bottom: 60px;
+}
+
+h2 {
+  color: $white;
+  display: block;
+  width: 100%;
+}
+
+.screenshotAnchor {
+  position: relative;
+  top: -100px;
+}

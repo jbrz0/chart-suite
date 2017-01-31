@@ -1,0 +1,30 @@
+.screenshotRoot {
+  margin: 0;
+  background: $black;
+  padding-bottom: 30px;
+}
+
+.screen {
+  width: 50%;
+  display: inline-block;
+  height: auto;
+}
+
+.screenImage {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 0 30px;
+  padding: 0 0 80px;
+  box-shadow: 3px 3px rgba($black, 0.3);
+}
+
+.screenOne img,
+.screenThree img {
+  margin: 0 30px 0 auto;
+}
+
+.screenshotAnchor {
+  position: relative;
+  top: -100px;
+}

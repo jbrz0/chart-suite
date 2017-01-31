@@ -1,2 +1,14 @@
 @import 'main';
-@import 'common/button'
+@import 'common/button';
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,900');
+
+@import 'header';
+@import 'navigation';
+@import 'iconBar';
+@import 'video';
+@import 'features';
+@import 'screenshots';
+@import 'footer';
+@import 'actionbtn';
+@import 'chartsettings';

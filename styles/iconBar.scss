@@ -1,0 +1,43 @@
+.iconBarRoot {
+  margin: 0;
+}
+
+.icons,
+.iconText {
+  position: relative;
+
+  div {
+    width: 33.33333%;
+    display: inline-block;
+  }
+}
+
+.iconText {
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+}
+
+.icons {
+  top: 100px;
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+}
+
+.icons div img {
+  max-width: 120px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bannerDesc {
+  padding: 0;
+  color: $black;
+  font-size: 1.25em;
+  margin: 0;
+  text-align: center;
+  margin-top: 40px;
+}

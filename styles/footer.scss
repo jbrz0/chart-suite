@@ -1,0 +1,52 @@
+.footerLogo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 20px auto;
+
+}
+
+.footerWrap {
+  background: $black;
+  padding: 0px 30px 50px 30px;
+
+  .footerMailLink {
+    text-align: center;
+    color: $white;
+    text-decoration: none;
+    font-style: italic;
+    display: block;
+    margin: auto;
+    max-width: 210px;
+    p {
+      border-bottom: 1px dashed $red;
+      display: inline-block;
+      text-align: center;
+      margin-top: 6px;
+    }
+    &:hover p {
+      border-bottom: 1px solid $purple;
+    }
+  }
+}
+
+.footerWrapChart {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  padding-top: 70px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 1600px) {
+	.footerWrapChart {
+		top: 800px;
+	}
+}
+
+@media (max-width: 540px) {
+  .footerWrapChart {
+    top: 560px;
+  }
+}

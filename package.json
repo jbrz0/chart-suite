@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-babel",
+  "name": "chart-suite",
   "version": "0.0.3",
-  "description": "React Webpack Babel Starter Kit",
+  "description": "React charts app",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
@@ -11,15 +11,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/brz0/chart-suite"
   },
-  "author": "Ali Al Dallal",
+  "author": "Justin Brazeau",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "homepage": "http://www.chartsuiteapp.com",
   "dependencies": {
+    "classnames": "^2.2.5",
+    "mfb": "^0.12.0",
     "node-sass": "^4.2.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "react-modal": "^1.6.5",
+    "react-router": "^3.0.2",
+    "react-scroll": "^1.4.5",
+    "react-side-bar": "^0.3.5",
+    "react-sidedrawer": "0.0.5",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-tooltip": "^3.2.2",
+    "recharts": "^0.20.5",
     "sass-loader": "^4.0.2"
   },
   "devDependencies": {

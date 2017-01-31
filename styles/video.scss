@@ -1,0 +1,78 @@
+.videoWrap {
+  width: 100%;
+  height: 400px;
+  // background-image: url(/videobg.jpg);
+  background-size: cover;
+  margin-top: 60px;
+}
+
+.videoInner {
+  background: rgba($purple, 0.7);
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+}
+
+.play {
+  max-width: 150px;
+}
+
+.playBtn {
+  width: 100%;
+  max-width: 220px;
+  background: transparent;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  div {
+    color: $white;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+}
+
+.embedContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embedContainer iframe,
+.embedContainer object,
+.embedContainer embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.closeBtn {
+  width: 30px;
+  display: block;
+  margin: 0 0 20px auto;
+  cursor: pointer;
+}
+
+.chartsHome {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  opacity: 0.4;
+  z-index: -1;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
