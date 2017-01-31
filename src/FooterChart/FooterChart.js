@@ -9,7 +9,7 @@ class FooterChart extends React.Component {
     return (
       <div className="footerWrap footerWrapChart">
         <a href="/"><img src={FooterLogo} className="footerLogo" /></a>
-        <a href="mailto:hello@chartsuiteapp.com" className="footerMailLink"><p>hello@chartsuiteapp.com</p></a>
+        <a href="mailto:chartsuiteapp@gmail.com" className="footerMailLink"><p>chartsuiteapp@gmail.com</p></a>
       </div>
     );
   }

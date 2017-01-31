@@ -45,3 +45,15 @@
   color: $teal;
   border: 1px solid $teal;
 }
+
+@media (max-width: 900px) {
+  .navRoot {
+    display: none;
+  }
+  .headerContainer .brand img {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: -6px;
+  }
+}

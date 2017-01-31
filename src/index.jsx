@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './app.jsx';
 
-import Welcome from './welcome.jsx';
+// import Welcome from './welcome.jsx';
 
 let injectTapEventPlugin = require('react-tap-event-plugin');
 window.React = React;

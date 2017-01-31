@@ -76,7 +76,7 @@ class Video extends React.Component {
               <img src={Close} className="closeBtn" onClick={this.closeModal} alt="Close Video" />
               <div>
                 <div className="embedContainer">
-                  <iframe src='https://www.youtube.com/embed/1o3Z0YFxRe4' frameBorder='0' allowFullScreen></iframe>
+                  <iframe src='https://www.youtube.com/embed/VFEWd_Gdifw' frameBorder='0' allowFullScreen></iframe>
                 </div>
               </div>
             </Modal>

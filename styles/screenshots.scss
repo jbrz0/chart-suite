@@ -3,6 +3,14 @@
   background: $black;
   padding-bottom: 30px;
 }
+@media (max-width: 1260px) {
+  .screenshotRoot {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 
 .screen {
   width: 50%;
@@ -14,17 +22,56 @@
   width: 100%;
   max-width: 600px;
   display: block;
-  margin: 0 auto 0 30px;
+  /*margin: 0 auto 0 30px;*/
+  margin: 0;
   padding: 0 0 80px;
-  box-shadow: 3px 3px rgba($black, 0.3);
+  box-shadow: 3px 3px color(var(--black) a(30%));
 }
 
-.screenOne img,
-.screenThree img {
-  margin: 0 30px 0 auto;
+.screenOne img {
+  float: right;
+  margin-right: 10px;
 }
+
+.screenTwo img {
+  float: left;
+  margin-left: 10px !important;
+}
+
+// .screenOne img,
+// .screenThree img {
+//   margin: 0 30px 0 auto;
+// }
 
 .screenshotAnchor {
   position: relative;
   top: -100px;
+}
+
+@media (max-width: 1260px) {
+  .screenImage {
+    margin: 0;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: -5px !important;
+  }
+  .screenOne img,
+  .screenTwo img {
+    margin: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .screenshotWrap {
+    background: $white;
+    padding-bottom: 1px;
+    border-radius: 4px;
+  }
+  .features {
+    padding-bottom: 50px;
+    background: #171d1c;
+    padding-top: 30px;
+  }
+  .footerWrap {
+    padding: 50px 30px 50px 30px !important;
+  }
 }

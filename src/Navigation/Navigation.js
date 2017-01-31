@@ -46,8 +46,8 @@ class Navigation extends React.Component {
         </Link>
         {/* <a href="/#plans" className="link linkFour">Plans</a> */}
 
-          <a href="mailto:hi@chartsuiteapp.com"
-            className="link linkFour" data-tip="hi@chartsuiteapp.com">contact
+          <a href="mailto:chartsuiteapp@gmail.com"
+            className="link linkFour" data-tip="chartsuiteapp@gmail.com">contact
           </a>
           <ReactTooltip effect="solid" place="bottom" />
 

@@ -41,3 +41,13 @@
   text-align: center;
   margin-top: 40px;
 }
+
+@media(max-width: 650px) {
+  .icons div img {
+    max-width: 70px;
+    margin-bottom: 24px;
+  }
+  .iconText {
+    font-size: 12px;
+  }
+}

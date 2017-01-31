@@ -108,3 +108,9 @@ body {
 .recharts-legend-wrapper {
 	padding-left: 30px;
 }
+
+@media (max-width: 1260px) {
+	.container {
+		padding: 20px 20px !important;
+	}
+}

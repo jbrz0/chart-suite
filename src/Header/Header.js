@@ -9,7 +9,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="root">
-        <div className="container">
+        <div className="container headerContainer">
           <Navigation className="nav" />
           <Link className="brand" to="/">
             <img src={logoUrl} width="340" height="75" alt="Chart Suite" />
