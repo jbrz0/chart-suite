@@ -5,7 +5,7 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveC
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 // import HeaderChart from '../../HeaderChart/HeaderChart.js';
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
-import FooterChart from '../../FooterChart/FooterChart.js';
+// import FooterChart from '../../FooterChart/FooterChart.js';
 import logoUrl from '../../HeaderChart/logo.svg';
 import { Link } from 'react-router';
 
@@ -237,7 +237,7 @@ export default class BarChartFive extends React.Component {
 
       </Modal>
 
-      <FooterChart />
+      {/* <FooterChart /> */}
 
       </div>
     )
