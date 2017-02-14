@@ -10,6 +10,7 @@ walkthrough modal
 chart settings open animation
 input validation to remove letters from breaking chart
   - parse int + error msg
+chart footer
 
 // more
 svg output

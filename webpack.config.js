@@ -7,8 +7,14 @@ var DashboardPlugin = require('webpack-dashboard/plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const HOST = process.env.HOST || "127.0.0.1";
-const PORT = process.env.PORT || "8888";
+// const HOST = process.env.HOST || "127.0.0.1";
+// const PORT = process.env.PORT || "8888";
+
+const HOST = process.env.HOST || "162.243.253.203";
+const PORT = process.env.PORT || "5000";
+
+
+
 
 loaders.push({
 	test: /\.scss$/,
