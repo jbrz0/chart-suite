@@ -13,9 +13,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HOST = process.env.HOST || "162.243.253.203";
 const PORT = process.env.PORT || "5000";
 
-
-
-
 loaders.push({
 	test: /\.scss$/,
 	loader: ExtractTextPlugin.extract('style', 'css?sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded'),
@@ -24,7 +21,6 @@ loaders.push({
 
 module.exports = {
 	entry: [
-		// 'react-hot-loader/patch',
 		'./src/index.jsx', // your app's entry point
 		'./styles/index.scss'
 	],
@@ -57,7 +53,7 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 	    new ExtractTextPlugin("style.css", {
-		      allChunks: true
+		  	allChunks: true
 		}),
 		new DashboardPlugin(),
 		new HtmlWebpackPlugin({

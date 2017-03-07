@@ -1,8 +1,0 @@
-{
-  "name": "Chart Suite",
-  "description": "a chart app",
-  "repository": "https://github.com/brz0/chart-suite.git",
-  "logo": "http://justinbrazeau.com/img/logo2.png",
-  "keywords": ["react", "node"],
-  "image": "heroku/nodejs"
-}

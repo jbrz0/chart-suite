@@ -19,7 +19,6 @@ body {
 	outline: 0;
 }
 
-// Add chart styles to seperate stylesheet
 .chartWrap {
 	position: absolute;
 	height: 100%;
@@ -28,16 +27,13 @@ body {
 	max-height: 500px;
 	max-height: auto;
 	clear: both;
-
 	left: 0;
 	right: 0;
 	display: block;
 	margin: auto;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
 }
 
 @media (max-width: 540px) {
@@ -56,20 +52,6 @@ body {
 	}
 }
 
-// @media (max-width: 540px) {
-// 	.footerWrapChart {
-// 		position: relative;
-// 	  top: 570px;
-// 	}
-// }
-
-// .controls {
-// 	position: absolute;
-// 	top: 100%;
-// }
-
-
-
 .recharts-wrapper {
 	right: 20px;
 }
@@ -84,7 +66,6 @@ body {
   border: 1px solid $purple;
   border-radius: 4px;
 	display: none;
-  // margin-bottom: 80px;
 }
 
 .exportPngBtn {

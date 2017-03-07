@@ -12,27 +12,15 @@ class IconBar extends React.Component {
       <div className="iconBarRoot">
 
         <div className="icons">
-          <div>
-            <img src={iconOne} alt="Create" />
-          </div>
-          <div>
-            <img src={iconTwo} alt="Edit" />
-          </div>
-          <div>
-            <img src={iconThree} alt="Save" />
-          </div>
+          <div><img src={iconOne} alt="Create" /></div>
+          <div><img src={iconTwo} alt="Edit" /></div>
+          <div><img src={iconThree} alt="Save" /></div>
         </div>
 
         <div className="iconText">
-          <div>
-            <p className="bannerDesc">Create</p>
-          </div>
-          <div>
-            <p className="bannerDesc">Edit</p>
-          </div>
-          <div>
-            <p className="bannerDesc">Save</p>
-          </div>
+          <div><p className="bannerDesc">Create</p></div>
+          <div><p className="bannerDesc">Edit</p></div>
+          <div><p className="bannerDesc">Save</p></div>
         </div>
 
       </div>

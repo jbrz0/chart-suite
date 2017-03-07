@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 import Play from './play.svg';
 import Close from './close.svg';
 import chartsHome from './chartshome.svg';
-
 import VideoPhotoPath from './videobg.jpg';
 const VideoPhoto = {backgroundImage: 'url(' + VideoPhotoPath + ')'}
 
@@ -45,10 +44,7 @@ class Video extends React.Component {
     this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.refs.subtitle.style.color = '#f00';
-  }
+  afterOpenModal() {}
 
   closeModal() {
     this.setState({ modalIsOpen: false });
@@ -71,14 +67,12 @@ class Video extends React.Component {
               style={customStyles}
               contentLabel="Video"
             >
-
-              {/* <button onClick={this.closeModal}>close</button> */}
-              <img src={Close} className="closeBtn" onClick={this.closeModal} alt="Close Video" />
-              <div>
-                <div className="embedContainer">
-                  <iframe src='https://www.youtube.com/embed/VFEWd_Gdifw' frameBorder='0' allowFullScreen></iframe>
-                </div>
+            <img src={Close} className="closeBtn" onClick={this.closeModal} alt="Close Video" />
+            <div>
+              <div className="embedContainer">
+                <iframe src='https://www.youtube.com/embed/VFEWd_Gdifw' frameBorder='0' allowFullScreen></iframe>
               </div>
+            </div>
             </Modal>
           </div>
         </div>

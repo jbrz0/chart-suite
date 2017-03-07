@@ -3,8 +3,6 @@ import React from 'react';
 // Svg
 import ScreenOne from './screenshot1.png';
 import ScreenTwo from './screenshot2.png';
-// import ScreenThree from './screenshot.png';
-// import ScreenFour from './screenshot.png';
 
 class Screenshots extends React.Component {
 
@@ -19,12 +17,6 @@ class Screenshots extends React.Component {
             <img src={ScreenTwo} alt="Chart Suite Screenshot" className="screenImage" />
           </div>
         </div>
-        {/* <div className="screen screenThree">
-          <img src={ScreenThree} alt="Chart Suite Screenshot" className="screenImage" />
-        </div>
-        <div className="screen">
-          <img src={ScreenFour} alt="Chart Suite Screenshot" className="screenImage" />
-        </div> */}
       </div>
     );
   }

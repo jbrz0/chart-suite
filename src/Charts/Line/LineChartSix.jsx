@@ -2,10 +2,8 @@ import React from 'react';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
-// import FooterChart from '../../FooterChart/FooterChart.js';
 import logoUrl from '../../HeaderChart/logo.svg';
 import { Link } from 'react-router';
-
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -45,13 +43,13 @@ export default class LineChartSix extends React.Component {
       Cat1Box2: 2,
       Cat1Box3: 4,
       Cat1Box4: 7,
-      Cat1Box5: 2,
+      Cat1Box5: 5,
       Cat1Box6: 4,
       Cat2Box1: 3,
       Cat2Box2: 1,
       Cat2Box3: 0,
       Cat2Box4: 8,
-      Cat2Box5: 1,
+      Cat2Box5: 4,
       Cat2Box6: 0,
       y1: '2015',
       y2: '2016',
@@ -68,18 +66,12 @@ export default class LineChartSix extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-
-    // url saving json
-    // var newURL = window.location.pathname;
-    // console.log(newURL);
-
   }
 
   handleChange(name, e) {
     var change = {};
     change[name] = e.target.value;
     this.setState(change);
-
   }
 
   doButterfly() {
@@ -88,31 +80,22 @@ export default class LineChartSix extends React.Component {
     css.type = "text/css";
     css.innerHTML = "#fromcanvas { display: block !important; }";
     document.body.appendChild(css);
-
     document.querySelector('svg.recharts-surface').id = 'svg';
+
     var svg = document.getElementById("svg");
     var img = document.getElementById("fromcanvas");
 
     svg.toDataURL("image/png", {
-      // keepOutsideViewport: true,
-      // keepNonSafe: true,
-
-      // adjust sizing of output, only works after DOM render
       callback: function(data) {
         img.setAttribute("src", data);
-        // var a = document.querySelector("#fromcanvas");
-        // a.style.width = '1500px';
       }
     })
   }
-
   openModal() {
     this.setState({modalIsOpen: true});
     document.body.style.overflow = 'hidden';
   }
-
   afterOpenModal() {}
-
   closeModal() {
     this.setState({modalIsOpen: false});
     document.body.style.overflow = 'auto';
@@ -122,9 +105,6 @@ export default class LineChartSix extends React.Component {
 
     var DataMin = this.state.theDataMin;
     var DataMax = this.state.theDataMax;
-
-    // UV = cat 1
-    // PV = cat 2
 
     let data = [
       {name: this.state.y1, uv: this.state.Cat2Box1, pv: this.state.Cat1Box1},
@@ -137,57 +117,51 @@ export default class LineChartSix extends React.Component {
 
     return (
       <div>
-
         <ActionBtn />
-
         <div className="chartWrap">
-
           <Link className="brand" to="/">
             <img src={logoUrl} width="340" height="75" alt="Chart Suite" />
           </Link>
 
-        <button onClick={this.openModal} className="chartSettingsBtn">
-          <i className="material-icons settingsIcon">settings</i>
-        </button>
-
-        <ResponsiveContainer>
-        <LineChart  data={data} width={1600} height={1000}
+          <button onClick={this.openModal} className="chartSettingsBtn">
+            <i className="material-icons settingsIcon">settings</i>
+          </button>
+          <ResponsiveContainer>
+            <LineChart  data={data} width={1600} height={1000}
               margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-         <XAxis dataKey="name"/>
-         <YAxis type="number" dataKey="1000000000000" domain={[parseInt(DataMin), parseInt(DataMax)]} allowDataOverflow={true} />
-         <CartesianGrid strokeDasharray="3 3"/>
-         <Tooltip/>
-         <Legend />
-         <Line type="monotone" dataKey="pv" name={this.state.categoryOne} stroke="#8884d8" activeDot={{r: 8}}/>
-         <Line type="monotone" dataKey="uv" name={this.state.categoryTwo} stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
+              <XAxis dataKey="name"/>
+              <YAxis type="number" dataKey="1000000000000" domain={[parseInt(DataMin), parseInt(DataMax)]} allowDataOverflow={true} />
+              <CartesianGrid strokeDasharray="3 3"/>
+              <Tooltip/>
+              <Legend />
+              <Line type="monotone" dataKey="pv" name={this.state.categoryOne} stroke="#8884d8" activeDot={{r: 8}}/>
+              <Line type="monotone" dataKey="uv" name={this.state.categoryTwo} stroke="#82ca9d" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
 
-      </div> {/* Chart Wrap */}
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Chart Edit Menu"
+        >
+          <h2>Chart Settings</h2>
+          <button onClick={this.closeModal} className="closeChartSettings">
+            <i className="material-icons">close</i>
+          </button>
 
-
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        style={customStyles}
-        contentLabel="Chart Edit Menu"
-      >
-        <h2>Chart Settings</h2>
-        <button onClick={this.closeModal} className="closeChartSettings">
-          <i className="material-icons">close</i>
-        </button>
-
-        <span className="chartEditorLabel">Categories</span>
-        <input type="text" value={this.state.categoryOne} className="chartEditorInput chartEditorInputLeft"
-          onChange={this.handleChange.bind(this, 'categoryOne')} placeholder="Category One" />
-        <input type="text" value={this.state.categoryTwo} className="chartEditorInput chartEditorInputRight"
-          onChange={this.handleChange.bind(this, 'categoryTwo')} placeholder="Category Two" />
-        <span className="chartEditorLabel">Min/Max Y Value</span>
-        <input type="text" value={this.state.theDataMin} className="chartEditorInput chartEditorInputLeft"
-          onChange={this.handleChange.bind(this, 'theDataMin')} placeholder="Minimum Y Value"/>
-        <input type="text" value={this.state.theDataMax} className="chartEditorInput chartEditorInputRight"
-          onChange={this.handleChange.bind(this, 'theDataMax')} placeholder="Minimum X Value" />
+          <span className="chartEditorLabel">Categories</span>
+          <input type="text" value={this.state.categoryOne} className="chartEditorInput chartEditorInputLeft"
+            onChange={this.handleChange.bind(this, 'categoryOne')} placeholder="Category One" />
+          <input type="text" value={this.state.categoryTwo} className="chartEditorInput chartEditorInputRight"
+            onChange={this.handleChange.bind(this, 'categoryTwo')} placeholder="Category Two" />
+          <span className="chartEditorLabel">Min/Max Y Value</span>
+          <input type="text" value={this.state.theDataMin} className="chartEditorInput chartEditorInputLeft"
+            onChange={this.handleChange.bind(this, 'theDataMin')} placeholder="Minimum Y Value"/>
+          <input type="text" value={this.state.theDataMax} className="chartEditorInput chartEditorInputRight"
+            onChange={this.handleChange.bind(this, 'theDataMax')} placeholder="Minimum X Value" />
           <span className="chartEditorLabel">X Values</span>
           <div className="amountWrap">
             <a href="/line/2"><button>2</button></a>
@@ -195,8 +169,8 @@ export default class LineChartSix extends React.Component {
             <a href="/line/4"><button>4</button></a>
             <a href="/line/5"><button>5</button></a>
             <a href="/line/6"><button className="activeXAmount">6</button></a>
-
           </div>
+
           <input type="text" value={this.state.y1} className="chartEditorInput chartEditorInputLeft"
             onChange={this.handleChange.bind(this, 'y1')} placeholder="X Value 1"/>
           <input type="text" value={this.state.y2} className="chartEditorInput chartEditorInputRight"
@@ -221,7 +195,7 @@ export default class LineChartSix extends React.Component {
           <input type="text" value={this.state.Cat1Box5} className="chartEditorInput chartEditorInputLeft"
             onChange={this.handleChange.bind(this, 'Cat1Box5')} placeholder="Y Value 5" />
           <input type="text" value={this.state.Cat1Box6} className="chartEditorInput chartEditorInputRight"
-            onChange={this.handleChange.bind(this, 'Cat1Box6')} placeholder="Y Value 6" /> <br />
+            onChange={this.handleChange.bind(this, 'Cat1Box6')} placeholder="Y Value 6" /><br />
 
           <span className="chartEditorLabel">Y Values: <strong>{this.state.categoryTwo}</strong></span>
           <input type="text" value={this.state.Cat2Box1} className="chartEditorInput chartEditorInputLeft"
@@ -235,15 +209,11 @@ export default class LineChartSix extends React.Component {
           <input type="text" value={this.state.Cat2Box5} className="chartEditorInput chartEditorInputLeft"
             onChange={this.handleChange.bind(this, 'Cat2Box5')} placeholder="Y Value 5" />
           <input type="text" value={this.state.Cat2Box6} className="chartEditorInput chartEditorInputRight"
-            onChange={this.handleChange.bind(this, 'Cat2Box6')} placeholder="Y Value 6" /> <br />
+            onChange={this.handleChange.bind(this, 'Cat2Box6')} placeholder="Y Value 6" /><br />
 
-          <button onClick={this.doButterfly} className="exportPngBtn">Save as PNG</button> <br />
+          <button onClick={this.doButterfly} className="exportPngBtn">Save as PNG</button><br />
           <img id="fromcanvas" className="exportedPng" />
-
-      </Modal>
-
-      {/* <FooterChart /> */}
-
+        </Modal>
       </div>
     )
   }

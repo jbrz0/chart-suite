@@ -8,15 +8,12 @@ import Footer from './Footer/Footer.js';
 import ActionBtn from './ActionBtn/ActionBtn.js';
 
 var Scroll  = require('react-scroll');
-
-// var Link       = Scroll.Link;
 var Element    = Scroll.Element;
 var Events     = Scroll.Events;
 var scroll     = Scroll.animateScroll;
 var scrollSpy  = Scroll.scrollSpy;
 
 export default class Welcome extends React.Component {
-
   componentDidMount() {
     scrollSpy.update();
   }
@@ -24,18 +21,10 @@ export default class Welcome extends React.Component {
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   }
-  scrollToTop() {
-    scroll.scrollToTop();
-  }
-  scrollToBottom() {
-    scroll.scrollToBottom();
-  }
-  scrollTo() {
-    scroll.scrollTo(100);
-  }
-  scrollMore() {
-    scroll.scrollMore(100);
-  }
+  scrollToTop() { scroll.scrollToTop(); }
+  scrollToBottom() { scroll.scrollToBottom(); }
+  scrollTo() { scroll.scrollTo(100); }
+  scrollMore() { scroll.scrollMore(100); }
 
   render() {
     return (

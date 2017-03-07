@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 var Scroll  = require('react-scroll');
-
 var Link       = Scroll.Link;
-// var Element    = Scroll.Element;
 var Events     = Scroll.Events;
 var scroll     = Scroll.animateScroll;
 var scrollSpy  = Scroll.scrollSpy;
@@ -17,18 +15,10 @@ class Navigation extends React.Component {
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
   }
-  scrollToTop() {
-    scroll.scrollToTop();
-  }
-  scrollToBottom() {
-    scroll.scrollToBottom();
-  }
-  scrollTo() {
-    scroll.scrollTo(100);
-  }
-  scrollMore() {
-    scroll.scrollMore(100);
-  }
+  scrollToTop() { scroll.scrollToTop(); }
+  scrollToBottom() { scroll.scrollToBottom(); }
+  scrollTo() { scroll.scrollTo(100); }
+  scrollMore() { scroll.scrollMore(100); }
 
   render() {
     return (
@@ -44,13 +34,10 @@ class Navigation extends React.Component {
           offset={50} duration={500} onSetActive={this.handleSetActive}>
           screenshots
         </Link>
-        {/* <a href="/#plans" className="link linkFour">Plans</a> */}
-
-          <a href="mailto:chartsuiteapp@gmail.com"
-            className="link linkFour" data-tip="chartsuiteapp@gmail.com">contact
-          </a>
-          <ReactTooltip effect="solid" place="bottom" />
-
+        <a href="mailto:chartsuiteapp@gmail.com"
+          className="link linkFour" data-tip="chartsuiteapp@gmail.com">contact
+        </a>
+        <ReactTooltip effect="solid" place="bottom" />
       </div>
     );
   }

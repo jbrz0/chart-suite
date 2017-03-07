@@ -1,13 +1,9 @@
-
 import React from 'react';
 
 // Svg
 import FeaturesOne from './features-01.svg';
 import FeaturesTwo from './features-02.svg';
 import FeaturesThree from './features-03.svg';
-// import FeaturesFour from './features-04.svg';
-// import FeaturesFive from './features-05.svg';
-// import FeaturesSix from './features-06.svg';
 
 class Features extends React.Component {
 
