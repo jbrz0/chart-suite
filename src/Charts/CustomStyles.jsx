@@ -1,0 +1,26 @@
+module.exports = {
+    content: {
+      position: 'absolute',
+      top: 0,
+      left: 'auto',
+      right: 0,
+      bottom: 'auto',
+      border: 'none',
+      background: 'rgba(251,76,78,1)',
+      color: '#F9F7FB',
+      overflow: 'auto',
+      borderRadius: 0,
+      outline: 'none',
+      padding: '30px',
+      marginRight: 'auto',
+      transform: 'none',
+      width: '100%',
+      maxWidth: '300px',
+      height: '100%',
+    },
+    overlay: {
+      backgroundColor: 'transparent',
+      overflow: 'auto',
+      zIndex: 3,
+    },
+}

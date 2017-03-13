@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header/Header.js';
+import Navigation from './Navigation/Navigation.js';
 import IconBar from './IconBar/IconBar.js';
 import Video from './Video/Video.js';
 import Features from './Features/Features.js';
@@ -29,7 +30,10 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header>
+          <Navigation className="nav"
+          features="features" screenshots="screenshots" />
+        </Header>
         <IconBar />
         <Video />
         <Element name="features" className="features">

@@ -95,3 +95,26 @@ body {
 		padding: 20px 20px !important;
 	}
 }
+
+.notFoundWrap {
+	text-align: center;
+	color: $black;
+}
+
+.notFoundLogo {
+	display: block;
+  margin: 40px auto;
+}
+
+.notFoundBtn {
+	color: $purple;
+  text-decoration: none;
+  border: 1px solid $purple;
+  border-radius: 4px;
+  padding: 10px 20px;
+  display: inline-block;
+	&:hover {
+		background: $purple;
+		color: $white;
+	}
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
+import NotFound from './notFound.jsx';
 
 export default class App extends React.Component {
   render() {
@@ -50,8 +51,7 @@ export default class App extends React.Component {
           require.ensure([], (require) => {
             cb(null, require('./Charts/Bar/BarChartSix.jsx').default); })
         }} />
-
-          {/* <Route path="*" component={NoMatch}/> */}
+        <Route path="*" component={NotFound}/>
       </Router>
 
     )
