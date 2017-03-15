@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
-import XValAmt from '../XValAmt.jsx';
+import XValAmtLine from '../XValAmt.jsx';
 import In from '../InputChartMenu.jsx';
 import CustomStylesFile from '../CustomStyles.jsx';
 import ChartHeader from '../ChartHeader.jsx';
@@ -112,7 +112,7 @@ export default class LineChartTwo extends React.Component {
           <In val={this.state.minNum} ph="Min" onC={this.hC.bind(this, 'minNum')} />
           <In val={this.state.maxNum} ph="Max" onC={this.hC.bind(this, 'maxNum')} />
 
-          <XValAmt />
+          <XValAmtLine />
 
           <In val={this.state.y1} ph="X Val 1" onC={this.hC.bind(this, 'y1')} />
           <In val={this.state.y2} ph="X Val 2" onC={this.hC.bind(this, 'y2')} />
