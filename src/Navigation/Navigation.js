@@ -23,7 +23,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <div className="root navRoot" role="navigation">
-        <a href="/line/6" className="link linkOne">
+        <a href="/line" className="link linkOne">
           new chart
         </a>
         <Link className="link linkTwo" activeClass="active" to={this.props.features} spy={true} smooth={true}

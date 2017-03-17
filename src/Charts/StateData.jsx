@@ -1,13 +1,13 @@
 module.exports = {
 
-    Cat1Box1: 1, Cat1Box2: 2, Cat1Box3: 4,
-    Cat1Box4: 7, Cat1Box5: 2, Cat1Box6: 4,
-    Cat2Box1: 3, Cat2Box2: 1, Cat2Box3: 3,
-    Cat2Box4: 8, Cat2Box5: 1, Cat2Box6: 3,
-    y1: '2015', y2: '2016', y3: '2017',
-    y4: '2018', y5: '2019', y6: '2020',
+    Cat1Box0: 1, Cat1Box1: 2, Cat1Box2: 4,
+    Cat1Box3: 7, Cat1Box4: 2, Cat1Box5: 4,
+    Cat2Box0: 3, Cat2Box1: 1, Cat2Box2: 3,
+    Cat2Box3: 8, Cat2Box4: 1, Cat2Box5: 3,
+    y0: '2015', y1: '2016', y2: '2017',
+    y3: '2018', y4: '2019', y5: '2020',
     minNum: 0, maxNum: 8,
     catOne: 'Bikes', catTwo: 'Skateboards',
-    modalIsOpen: false,
+    modalIsOpen: false, arrayX: 6,
 
 }

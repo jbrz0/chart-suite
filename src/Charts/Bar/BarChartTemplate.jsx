@@ -1,10 +1,9 @@
 import React from 'react';
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 import Modal from 'react-modal';
 
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
-import XValAmtLine from '../XValAmtLine.jsx';
 import In from '../InputChartMenu.jsx';
 import CustomStylesFile from '../CustomStyles.jsx';
 import ChartHeader from '../ChartHeader.jsx';
@@ -12,7 +11,7 @@ import stateData from '../StateData.jsx';
 
 const customStyles = CustomStylesFile;
 
-export default class LineChartFour extends React.Component {
+export default class BarChartTemplate extends React.Component {
 
   constructor(props) {
     super(props);
@@ -61,11 +60,15 @@ export default class LineChartFour extends React.Component {
   render() {
 
     let data = [
+      {name: this.state.y0, uv: this.state.Cat2Box0, pv: this.state.Cat1Box0},
       {name: this.state.y1, uv: this.state.Cat2Box1, pv: this.state.Cat1Box1},
       {name: this.state.y2, uv: this.state.Cat2Box2, pv: this.state.Cat1Box2},
       {name: this.state.y3, uv: this.state.Cat2Box3, pv: this.state.Cat1Box3},
       {name: this.state.y4, uv: this.state.Cat2Box4, pv: this.state.Cat1Box4},
+      {name: this.state.y5, uv: this.state.Cat2Box5, pv: this.state.Cat1Box5},
     ];
+
+    data.length = this.state.arrayX;
 
     return (
       <div>
@@ -73,18 +76,17 @@ export default class LineChartFour extends React.Component {
         <div className="chartWrap">
           <ChartHeader openModal={this.openModal} />
           <ResponsiveContainer>
-            <LineChart  data={data} width={1600} height={1000}
+            <BarChart  data={data} width={1600} height={1000}
               margin={{top: 5, right: 30, left: 20, bottom: 5}}>
               <XAxis dataKey="name"/>
               <YAxis type="number" dataKey="1000000000000"
                 domain={[parseInt(this.state.minNum), parseInt(this.state.maxNum)]} allowDataOverflow={true} />
               <CartesianGrid strokeDasharray="3 3"/>
               <Tooltip/><Legend />
-              <Line type="monotone" dataKey="pv" name={this.state.catOne} stroke="#8884d8" activeDot={{r: 8}}/>
-              <Line type="monotone" dataKey="uv" name={this.state.catTwo} stroke="#82ca9d" />
-            </LineChart>
+              <Bar type="monotone" dataKey="pv" name={this.state.catOne} fill="#8884d8" activeDot={{r: 8}}/>
+              <Bar type="monotone" dataKey="uv" name={this.state.catTwo} fill="#82ca9d" />
+            </BarChart>
           </ResponsiveContainer>
-
         </div>
 
         <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal}
@@ -104,26 +106,28 @@ export default class LineChartFour extends React.Component {
           <In val={this.state.minNum} ph="Min" onC={this.hC.bind(this, 'minNum')} />
           <In val={this.state.maxNum} ph="Max" onC={this.hC.bind(this, 'maxNum')} />
 
-          <XValAmtLine />
+          <span className="chartEditorLabel">X Values</span>
+          <div className="amountWrap">
+          {Array.apply(null, Array(5)).map(function(item, i){
+            return ( <a onClick={()=> this.setState({arrayX: i + 2})}><button>{i + 2}</button></a> );
+          }, this)}
+          </div>
 
-          <In val={this.state.y1} ph="X Val 1" onC={this.hC.bind(this, 'y1')} />
-          <In val={this.state.y2} ph="X Val 2" onC={this.hC.bind(this, 'y2')} />
-          <In val={this.state.y3} ph="X Val 3" onC={this.hC.bind(this, 'y3')} />
-          <In val={this.state.y4} ph="X Val 4" onC={this.hC.bind(this, 'y4')} />
+          {Array.apply(null, Array(this.state.arrayX)).map(function(item, i){
+            return ( <In val={eval('this.state.y' + i)} key={'xVal' + i} ph={'X Val ' + i } onC={this.hC.bind(this, "y" + i)} /> );
+          }, this)}
           <br />
 
           <span className="chartEditorLabel">Y Values: <strong>{this.state.catOne}</strong></span>
-          <In val={this.state.Cat1Box1} ph="Y Val 1" onC={this.hC.bind(this, 'Cat1Box1')} />
-          <In val={this.state.Cat1Box2} ph="Y Val 2" onC={this.hC.bind(this, 'Cat1Box2')} />
-          <In val={this.state.Cat1Box3} ph="Y Val 3" onC={this.hC.bind(this, 'Cat1Box3')} />
-          <In val={this.state.Cat1Box4} ph="Y Val 4" onC={this.hC.bind(this, 'Cat1Box4')} />
+          {Array.apply(null, Array(this.state.arrayX)).map(function(item, i){
+            return ( <In val={eval('this.state.Cat1Box' + i)} key={'Y1Val' + i} ph={'Y Val ' + i } onC={this.hC.bind(this, "Cat1Box" + i)} /> );
+          }, this)}
           <br />
 
           <span className="chartEditorLabel">Y Values: <strong>{this.state.catTwo}</strong></span>
-          <In val={this.state.Cat2Box1} ph="Y Val 1" onC={this.hC.bind(this, 'Cat2Box1')} />
-          <In val={this.state.Cat2Box2} ph="Y Val 2" onC={this.hC.bind(this, 'Cat2Box2')} />
-          <In val={this.state.Cat2Box3} ph="Y Val 3" onC={this.hC.bind(this, 'Cat2Box3')} />
-          <In val={this.state.Cat2Box4} ph="Y Val 4" onC={this.hC.bind(this, 'Cat2Box4')} />
+          {Array.apply(null, Array(this.state.arrayX)).map(function(item, i){
+            return ( <In val={eval('this.state.Cat2Box' + i)} key={'Y2Val' + i} ph={'Y Val ' + i } onC={this.hC.bind(this, "Cat2Box" + i)} /> );
+          }, this)}
           <br />
 
           <button onClick={this.exportPng} className="exportPngBtn">Save as PNG</button> <br />

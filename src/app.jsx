@@ -11,45 +11,13 @@ export default class App extends React.Component {
           require.ensure([], (require) => {
             cb(null, require('./welcome.jsx').default); })
         }} />
-        <Route path="line/2" getComponent={(nextState, cb) => {
+        <Route path="bar" getComponent={(nextState, cb) => {
           require.ensure([], (require) => {
-            cb(null, require('./Charts/Line/LineChartTwo.jsx').default); })
+            cb(null, require('./Charts/Bar/BarChartTemplate.jsx').default); })
         }} />
-        <Route path="line/3" getComponent={(nextState, cb) => {
+        <Route path="line" getComponent={(nextState, cb) => {
           require.ensure([], (require) => {
-            cb(null, require('./Charts/Line/LineChartThree.jsx').default); })
-        }} />
-        <Route path="line/4" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Line/LineChartFour.jsx').default); })
-        }} />
-        <Route path="line/5" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Line/LineChartFive.jsx').default); })
-        }} />
-        <Route path="line/6" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Line/LineChartSix.jsx').default); })
-        }} />
-        <Route path="bar/2" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Bar/BarChartTwo.jsx').default); })
-        }} />
-        <Route path="bar/3" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Bar/BarChartThree.jsx').default); })
-        }} />
-        <Route path="bar/4" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Bar/BarChartFour.jsx').default); })
-        }} />
-        <Route path="bar/5" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Bar/BarChartFive.jsx').default); })
-        }} />
-        <Route path="bar/6" getComponent={(nextState, cb) => {
-          require.ensure([], (require) => {
-            cb(null, require('./Charts/Bar/BarChartSix.jsx').default); })
+            cb(null, require('./Charts/Line/LineChartTemplate.jsx').default); })
         }} />
         <Route path="*" component={NotFound}/>
       </Router>

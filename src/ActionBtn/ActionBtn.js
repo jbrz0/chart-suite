@@ -12,12 +12,12 @@ export default class ActionBtn extends React.Component {
             </a>
             <ul className="mfb-component__list">
               <li>
-                <a href="/bar/6" data-mfb-label="New Bar Chart" className="mfb-component__button--child">
+                <a href="/bar" data-mfb-label="New Bar Chart" className="mfb-component__button--child">
                   <i className="mfb-component__child-icon material-icons actionBtnIcon">insert_chart</i>
                 </a>
               </li>
               <li>
-                <a href="/line/6" data-mfb-label="New Line Chart" className="mfb-component__button--child">
+                <a href="/line" data-mfb-label="New Line Chart" className="mfb-component__button--child">
                   <i className="mfb-component__child-icon material-icons actionBtnIcon">show_chart</i>
                 </a>
               </li>
