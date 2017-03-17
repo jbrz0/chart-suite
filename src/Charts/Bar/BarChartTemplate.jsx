@@ -2,6 +2,9 @@ import React from 'react';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 import Modal from 'react-modal';
 
+// TODO: Add URL Save
+import { Router } from 'react-router'; // eslint-disable-line no-unused-vars
+
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
 import In from '../InputChartMenu.jsx';
@@ -27,6 +30,19 @@ export default class BarChartTemplate extends React.Component {
     change[name] = e.target.value;
     this.setState(change);
   }
+
+
+  // TODO: Add URL Save
+  pathJSON() {
+    this.context.router.push('/some-path');
+  }
+
+  static get contextTypes() {
+    return {
+      router: React.PropTypes.object.isRequired,
+    };
+  }
+
 
   exportPng() {
     var css = document.createElement("style");
@@ -70,6 +86,7 @@ export default class BarChartTemplate extends React.Component {
 
     data.length = this.state.arrayX;
 
+
     return (
       <div>
         <ActionBtn />
@@ -109,7 +126,7 @@ export default class BarChartTemplate extends React.Component {
           <span className="chartEditorLabel">X Values</span>
           <div className="amountWrap">
           {Array.apply(null, Array(5)).map(function(item, i){
-            return ( <a onClick={()=> this.setState({arrayX: i + 2})}><button>{i + 2}</button></a> );
+            return ( <a key={'arrayVal' + i} onClick={()=> this.setState({arrayX: i + 2})}><button>{i + 2}</button></a> );
           }, this)}
           </div>
 
@@ -132,6 +149,9 @@ export default class BarChartTemplate extends React.Component {
 
           <button onClick={this.exportPng} className="exportPngBtn">Save as PNG</button> <br />
           <img id="fromcanvas" className="exportedPng" />
+
+          {/* // TODO: Add URL Save*/}
+          {/* <button onClick={this.pathJSON.bind(this)} >GET LINK</button> */}
         </Modal>
       </div>
     )

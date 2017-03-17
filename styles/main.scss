@@ -52,6 +52,15 @@ body {
 	}
 }
 
+@media (max-width: 1230px) {
+  .chartWrap {
+    margin-left: 22px;
+  }
+  .chartSettingsBtn {
+    margin-right: 48px !important;
+  }
+}
+
 .recharts-wrapper {
 	right: 20px;
 }

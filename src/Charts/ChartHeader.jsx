@@ -8,7 +8,7 @@ class ChartHeader extends React.Component {
     return (
       <div>
         <Link className="brand" to="/">
-          <img src={logoUrl} width="340" height="75" alt="Chart Suite" />
+          <img className="chartHeaderLogo" src={logoUrl} width="340" height="75" alt="Chart Suite" />
         </Link>
         <button onClick={this.props.openModal} className="chartSettingsBtn">
           <i className="material-icons settingsIcon">settings</i>
