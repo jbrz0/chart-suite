@@ -32,7 +32,7 @@ export default class LineChartTemplate extends React.Component {
 
   exportPng() {
     var node = document.querySelector('.recharts-responsive-container');
-    domtoimage.toPng(node, {height: 550, width: 980})
+    domtoimage.toPng(node, {height: 550, width: 800})
       .then(function (dataUrl) {
         var img = new Image();
         img.src = dataUrl;
@@ -71,7 +71,7 @@ export default class LineChartTemplate extends React.Component {
     return (
       <div>
         <ActionBtn />
-        <div className="chartWrap chartWrapLine">
+        <div className="chartWrap">
           <ChartHeader openModal={this.openModal} />
           <ResponsiveContainer>
             <LineChart  data={data} width={1600} height={1000}

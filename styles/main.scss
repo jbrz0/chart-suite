@@ -53,9 +53,9 @@ body {
 }
 
 @media (max-width: 1230px) {
-  .chartWrap {
-    margin-left: 22px;
-  }
+  // .chartWrap {
+  //   margin-left: 22px;
+  // }
   .chartSettingsBtn {
     margin-right: 48px !important;
   }
@@ -93,10 +93,6 @@ body {
 
 .recharts-responsive-container {
   margin-top: 12px;
-}
-
-.chartWrapLine .recharts-responsive-container {
-  right: 20px;
 }
 
 .recharts-legend-wrapper {
