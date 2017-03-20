@@ -1,6 +1,7 @@
 import React from 'react';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 import Modal from 'react-modal';
+import domtoimage from 'dom-to-image';
 
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
@@ -20,6 +21,7 @@ export default class LineChartTemplate extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    document.body.style.marginBottom = "100px";
   }
 
   hC(name, e) {
@@ -29,20 +31,16 @@ export default class LineChartTemplate extends React.Component {
   }
 
   exportPng() {
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = "#fromcanvas { display: block !important; }";
-    document.body.appendChild(css);
-
-    document.querySelector('svg.recharts-surface').id = 'svg';
-    var svg = document.getElementById("svg");
-    var img = document.getElementById("fromcanvas");
-
-    svg.toDataURL("image/png", {
-      callback: function(data) {
-        img.setAttribute("src", data);
-      }
-    })
+    var node = document.querySelector('.recharts-responsive-container');
+    domtoimage.toPng(node, {height: 550, width: 980})
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.getElementById('canvasexport').appendChild(img);
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
   }
 
   openModal() {
@@ -73,7 +71,7 @@ export default class LineChartTemplate extends React.Component {
     return (
       <div>
         <ActionBtn />
-        <div className="chartWrap">
+        <div className="chartWrap chartWrapLine">
           <ChartHeader openModal={this.openModal} />
           <ResponsiveContainer>
             <LineChart  data={data} width={1600} height={1000}
@@ -109,7 +107,7 @@ export default class LineChartTemplate extends React.Component {
           <span className="chartEditorLabel">X Values</span>
           <div className="amountWrap">
           {Array.apply(null, Array(5)).map(function(item, i){
-            return ( <a onClick={()=> this.setState({arrayX: i + 2})}><button>{i + 2}</button></a> );
+            return ( <a key={'arrayVal' + i} onClick={()=> this.setState({arrayX: i + 2})}><button>{i + 2}</button></a> );
           }, this)}
           </div>
 
@@ -131,7 +129,7 @@ export default class LineChartTemplate extends React.Component {
           <br />
 
           <button onClick={this.exportPng} className="exportPngBtn">Save as PNG</button> <br />
-          <img id="fromcanvas" className="exportedPng" />
+          <div id="canvasexport" className="exportedPng"></div>
         </Modal>
       </div>
     )

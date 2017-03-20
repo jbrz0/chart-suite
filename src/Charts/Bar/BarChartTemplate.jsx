@@ -1,9 +1,7 @@
 import React from 'react';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 import Modal from 'react-modal';
-
-// TODO: Add URL Save
-import { Router } from 'react-router'; // eslint-disable-line no-unused-vars
+import domtoimage from 'dom-to-image';
 
 import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
@@ -23,6 +21,7 @@ export default class BarChartTemplate extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    document.body.style.marginBottom = "100px";
   }
 
   hC(name, e) {
@@ -31,34 +30,17 @@ export default class BarChartTemplate extends React.Component {
     this.setState(change);
   }
 
-
-  // TODO: Add URL Save
-  pathJSON() {
-    this.context.router.push('/some-path');
-  }
-
-  static get contextTypes() {
-    return {
-      router: React.PropTypes.object.isRequired,
-    };
-  }
-
-
   exportPng() {
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = "#fromcanvas { display: block !important; }";
-    document.body.appendChild(css);
-
-    document.querySelector('svg.recharts-surface').id = 'svg';
-    var svg = document.getElementById("svg");
-    var img = document.getElementById("fromcanvas");
-
-    svg.toDataURL("image/png", {
-      callback: function(data) {
-        img.setAttribute("src", data);
-      }
-    })
+    var node = document.querySelector('.recharts-responsive-container');
+    domtoimage.toPng(node, {height: 550, width: 1200})
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.getElementById('canvasexport').appendChild(img);
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
   }
 
   openModal() {
@@ -85,7 +67,6 @@ export default class BarChartTemplate extends React.Component {
     ];
 
     data.length = this.state.arrayX;
-
 
     return (
       <div>
@@ -147,11 +128,9 @@ export default class BarChartTemplate extends React.Component {
           }, this)}
           <br />
 
-          <button onClick={this.exportPng} className="exportPngBtn">Save as PNG</button> <br />
-          <img id="fromcanvas" className="exportedPng" />
+          <button onClick={this.exportPng} className="exportPngBtn">Save as PNG</button><br />
+          <div id="canvasexport" className="exportedPng"></div>
 
-          {/* // TODO: Add URL Save*/}
-          {/* <button onClick={this.pathJSON.bind(this)} >GET LINK</button> */}
         </Modal>
       </div>
     )

@@ -193,7 +193,7 @@ SVGElement.prototype.toDataURL = function(type, options) {
 
 			if (!options.renderer) {
 				if (window.canvg) options.renderer = "canvg";
-				else options.renderer="native";
+				else options.renderer = "native";
 			}
 
 			switch (options.renderer) {
