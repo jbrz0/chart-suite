@@ -8,6 +8,6 @@ module.exports = {
     y3: '2018', y4: '2019', y5: '2020',
     minNum: 0, maxNum: 8,
     catOne: 'Bikes', catTwo: 'Skateboards',
-    modalIsOpen: false, arrayX: 6,
+    arrayX: 6,
 
 }

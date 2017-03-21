@@ -21,6 +21,11 @@ export default class ActionBtn extends React.Component {
                   <i className="mfb-component__child-icon material-icons actionBtnIcon">show_chart</i>
                 </a>
               </li>
+              <li>
+                <a href="/pie" data-mfb-label="New Pie Chart" className="mfb-component__button--child">
+                  <i className="mfb-component__child-icon material-icons actionBtnIcon">pie_chart</i>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>

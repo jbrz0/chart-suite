@@ -1,27 +1,20 @@
 import React from 'react';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-import Modal from 'react-modal';
 import domtoimage from 'dom-to-image';
+import {Link} from 'react-router';
+var Menu = require('react-burger-menu').stack;
 
-import SVGElement from '../../saveImg/svg_todataurl.js'; // eslint-disable-line no-unused-vars
 import ActionBtn from '../../ActionBtn/ActionBtn.js';
 import In from '../InputChartMenu.jsx';
-import CustomStylesFile from '../CustomStyles.jsx';
-import ChartHeader from '../ChartHeader.jsx';
 import stateData from '../StateData.jsx';
-
-const customStyles = CustomStylesFile;
+import logoUrl from '../../../img/logo.svg';
+import chartMenuIcon from '../../../img/gear.svg';
 
 export default class BarChartTemplate extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = stateData;
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    document.body.style.marginBottom = "100px";
   }
 
   hC(name, e) {
@@ -32,7 +25,7 @@ export default class BarChartTemplate extends React.Component {
 
   exportPng() {
     var node = document.querySelector('.recharts-responsive-container');
-    domtoimage.toPng(node, {height: 550, width: 1200})
+    domtoimage.toPng(node)
       .then(function (dataUrl) {
         var img = new Image();
         img.src = dataUrl;
@@ -41,18 +34,6 @@ export default class BarChartTemplate extends React.Component {
       .catch(function (error) {
         console.error('oops, something went wrong!', error);
       });
-  }
-
-  openModal() {
-    this.setState({modalIsOpen: true});
-    document.body.style.overflow = 'hidden';
-  }
-
-  afterOpenModal() {}
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-    document.body.style.overflow = 'auto';
   }
 
   render() {
@@ -68,11 +49,22 @@ export default class BarChartTemplate extends React.Component {
 
     data.length = this.state.arrayX;
 
+    var isMenuOpen = function(state) {
+      if (state.isOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "scroll";
+      }
+    };
+
     return (
       <div>
         <ActionBtn />
+        <Link to="/" className="chartBrand">
+          <img src={logoUrl} width="220" alt="Chart Suite" />
+        </Link>
+
         <div className="chartWrap">
-          <ChartHeader openModal={this.openModal} />
           <ResponsiveContainer>
             <BarChart  data={data} width={1600} height={1000}
               margin={{top: 5, right: 30, left: 20, bottom: 5}}>
@@ -81,20 +73,14 @@ export default class BarChartTemplate extends React.Component {
                 domain={[parseInt(this.state.minNum), parseInt(this.state.maxNum)]} allowDataOverflow={true} />
               <CartesianGrid strokeDasharray="3 3"/>
               <Tooltip/><Legend />
-              <Bar type="monotone" dataKey="pv" name={this.state.catOne} fill="#8884d8" activeDot={{r: 8}}/>
-              <Bar type="monotone" dataKey="uv" name={this.state.catTwo} fill="#82ca9d" />
+              <Bar type="monotone" dataKey="pv" name={this.state.catOne} fill="#5a67f4" activeDot={{r: 8}}/>
+              <Bar type="monotone" dataKey="uv" name={this.state.catTwo} fill="#98ca29" />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal} style={customStyles}
-          contentLabel="Chart Edit Menu">
-
+        <Menu right onStateChange={ isMenuOpen } customBurgerIcon={ <img src={chartMenuIcon} /> } >
           <h2>Chart Settings</h2>
-          <button onClick={this.closeModal} className="closeChartSettings">
-            <i className="material-icons">close</i>
-          </button>
 
           <span className="chartEditorLabel">Categories</span>
           <In val={this.state.catOne} ph="Category" onC={this.hC.bind(this, 'catOne')} />
@@ -130,8 +116,7 @@ export default class BarChartTemplate extends React.Component {
 
           <button onClick={this.exportPng} className="exportPngBtn">Save as PNG</button><br />
           <div id="canvasexport" className="exportedPng"></div>
-
-        </Modal>
+        </Menu>
       </div>
     )
   }

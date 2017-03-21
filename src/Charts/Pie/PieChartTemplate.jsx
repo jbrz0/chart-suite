@@ -1,5 +1,5 @@
 import React from 'react';
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import { PieChart, Tooltip, Legend, Pie, ResponsiveContainer } from 'recharts';
 import domtoimage from 'dom-to-image';
 import {Link} from 'react-router';
 var Menu = require('react-burger-menu').stack;
@@ -57,6 +57,12 @@ export default class BarChartTemplate extends React.Component {
       }
     };
 
+    const LegendWithValues = () =>
+        <div>
+          <span>{this.state.catOne}</span>
+          <span>{this.state.catTwo}</span>
+        </div>
+
     return (
       <div>
         <ActionBtn />
@@ -64,18 +70,14 @@ export default class BarChartTemplate extends React.Component {
           <img src={logoUrl} width="220" alt="Chart Suite" />
         </Link>
 
-        <div className="chartWrap">
+        <div className="chartWrap chartWrapPie">
           <ResponsiveContainer>
-            <LineChart  data={data} width={1600} height={1000}
-              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-              <XAxis dataKey="name"/>
-              <YAxis type="number" dataKey="1000000000000"
-                domain={[parseInt(this.state.minNum), parseInt(this.state.maxNum)]} allowDataOverflow={true} />
-              <CartesianGrid strokeDasharray="3 3"/>
-              <Tooltip/><Legend />
-              <Line type="monotone" dataKey="pv" name={this.state.catOne} stroke="#5a67f4" activeDot={{r: 8}}/>
-              <Line type="monotone" dataKey="uv" name={this.state.catTwo} stroke="#98ca29" />
-            </LineChart>
+            <PieChart>
+              <Legend content={LegendWithValues} />
+              <Tooltip />
+              <Pie data={data} nameKey="name" innerRadius="25%" valueKey="uv" outerRadius="80%" fill="#5a67f4"/>
+              <Pie data={data} nameKey="name" valueKey="pv" innerRadius="55%" fill="#98ca29" outerRadius="80%"/>
+            </PieChart>
           </ResponsiveContainer>
         </div>
 
@@ -85,10 +87,6 @@ export default class BarChartTemplate extends React.Component {
           <span className="chartEditorLabel">Categories</span>
           <In val={this.state.catOne} ph="Category" onC={this.hC.bind(this, 'catOne')} />
           <In val={this.state.catTwo} ph="Category" onC={this.hC.bind(this, 'catTwo')} />
-
-          <span className="chartEditorLabel">Min/Max Y Value</span>
-          <In val={this.state.minNum} ph="Min" onC={this.hC.bind(this, 'minNum')} />
-          <In val={this.state.maxNum} ph="Max" onC={this.hC.bind(this, 'maxNum')} />
 
           <span className="chartEditorLabel">X Values</span>
           <div className="amountWrap">

@@ -55,16 +55,16 @@
 }
 
 .chartEditorInput {
-  background: $white;
+  background: rgba($white, 0.1);
   border: 1px solid $purple;
   border-radius: 4px;
   padding: 10px 20px;
-  width: 74px;
+  width: 72px;
   display: inline-block;
-  margin: 2px;
-  color: $black;
+  margin: 6px;
+  color: $white;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .chartEditorInputLeft {
@@ -104,5 +104,83 @@
   .activeXAmount {
     background: $purple;
     color: $white;
+  }
+}
+
+/* Modal Menu */
+
+.bm-burger-button {
+  position: fixed;
+  right: 23px;
+  top: 23px;
+  height: 34px;
+  width: 34px;
+  background: $purple;
+  padding: 6px;
+  border-radius: 2px;
+  button {
+    cursor: pointer;
+  }
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-cross-button {
+  height: 24px !important;
+  width: 24px !important;
+  right: 30px !important;
+  top: 22px !important;
+  button {
+    cursor: pointer;
+  }
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu {
+  background: $black;
+  padding: 0;
+  padding-left: 34px;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0;
+}
+
+.bm-overlay {
+  background: rgba($black, 0.32);
+}
+
+.chartBrand {
+  z-index: 1;
+  position: fixed;
+  left: 22px;
+  top: 22px;
+}
+
+.chartWrapPie .recharts-legend-wrapper {
+  width: 100% !important;
+  max-width: 550px;
+  display: block;
+  margin: auto;
+  padding: 0 22px 0 22px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  div span {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding-left: 10px;
+  }
+  div span:first-child {
+    border-left: 16px solid $purple;
+  }
+  div span:last-child {
+    border-left: 16px solid $green;
   }
 }

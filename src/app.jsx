@@ -19,6 +19,10 @@ export default class App extends React.Component {
           require.ensure([], (require) => {
             cb(null, require('./Charts/Line/LineChartTemplate.jsx').default); })
         }} />
+        <Route path="pie" getComponent={(nextState, cb) => {
+          require.ensure([], (require) => {
+            cb(null, require('./Charts/Pie/PieChartTemplate.jsx').default); })
+        }} />
         <Route path="*" component={NotFound}/>
       </Router>
 
