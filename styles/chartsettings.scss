@@ -184,3 +184,10 @@
     border-left: 16px solid $green;
   }
 }
+@media (max-width: 650px) {
+  .chartWrapPie {
+    top: 0px;
+    left: 0px;
+    transform: none;
+  }
+}
