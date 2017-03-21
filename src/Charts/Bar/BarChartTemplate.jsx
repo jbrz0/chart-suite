@@ -15,9 +15,6 @@ export default class BarChartTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = stateData;
-    window.addEventListener('touchstart', function() {
-      document.getElementById('canvasexport').style.display = 'none';
-    });
   }
 
   hC(name, e) {

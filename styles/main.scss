@@ -93,6 +93,12 @@ body {
 	}
 }
 
+@media (max-width: 768px) {
+	.exportPngBtn {
+		display: none;
+	}
+}
+
 .recharts-responsive-container {
   margin-top: 12px;
 }
