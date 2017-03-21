@@ -95,7 +95,7 @@ body {
 
 @media (max-width: 768px) {
 	.exportPngBtn {
-		display: none;
+		display: none !important;
 	}
 }
 
